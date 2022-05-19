@@ -1,0 +1,10 @@
+*{
+    margin: 5;
+    padding: 5px;
+}
+.h2{
+  text-align: center;
+}
+.bill-container{
+  border:2px solid black
+}
