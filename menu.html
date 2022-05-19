@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style/menu.css" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .catagory-div {
+            /* border:2px solid red;  */
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            /* flex-direction:column; */
+            padding: 5px;
+            padding: 20px 10px;
+            overflow: auto;
+        }
+
+        .item-div {
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.1);
+            border-radius: 10px
+        }
+
+        .item-name {
+            padding-bottom: 5px;
+            padding-top: 5px;
+            font-weight: bold;
+            letter-spacing: 1px
+        }
+
+        .item-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 10px;
+            width: 100%;
+            background-color: rgba(0, 212, 255, 0.1)
+        }
+
+        .item-price {
+            padding-bottom: 5px;
+        }
+
+        .quantity-div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 5px;
+            margin-top: 10px
+        }
+
+        .order-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+        <div class="menu-head">
+            <h1>Menu Items</h1>
+        </div>
+        <div class="menu-body">
+            <h2 class="catagory-name">Fast Food</h2>
+            <div class="catagory-div">
+                <div class="item-div">
+                    <img src="../assets/images/food/chiken.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div id="fast-fd-1-name" class="item-name">chiken</div>
+                        <div style="display:flex">
+                            <div id="fast-fd-1-price" class="item-price">250</div> &nbsp;rs.
+                        </div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('fast-fd-1')" class="btn btn-warning">-</button>
+                        <span id="fast-fd-1">0</span>
+                        <button onclick="incQua('fast-fd-1')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button onclick="addItems('fast-fd-1')" style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/brgr.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div id="fast-fd-2-name" class="item-name">Burger</div>
+                        <div style="display:flex">
+                            <div id="fast-fd-2-price" class="item-price">100</div>&nbsp;rs.
+                        </div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('fast-fd-2')" class="btn btn-warning">-</button>
+                        <span id="fast-fd-2">0</span>
+                        <button onclick="incQua('fast-fd-2')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button onclick="addItems('fast-fd-2')" style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/momo2.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div id="fast-fd-3-name" class="item-name">Momos</div>
+                        <div id="fast-fd-3-price" class="item-price">100 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('fast-fd-3')" class="btn btn-warning">-</button>
+                        <span id="fast-fd-3">0</span>
+                        <button onclick="incQua('fast-fd-3')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button onclick="addItems('fast-fd-3')" style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/nood.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Maggie</div>
+                        <div class="item-price">100 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('fast-fd-4')" class="btn btn-warning">-</button>
+                        <span id="fast-fd-4">0</span>
+                        <button onclick="incQua('fast-fd-4')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/momos.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Momo</div>
+                        <div class="item-price">149 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('fast-fd-5')" class="btn btn-warning">-</button>
+                        <span id="fast-fd-5">0</span>
+                        <button onclick="incQua('fast-fd-5')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/noodles.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Noodles</div>
+                        <div class="item-price">249 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('fast-fd-6')" class="btn btn-warning">-</button>
+                        <span id="fast-fd-6">0</span>
+                        <button onclick="incQua('fast-fd-6')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/Fried.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Chiken Fried</div>
+                        <div class="item-price">350 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('fast-fd-7')" class="btn btn-warning">-</button>
+                        <span id="fast-fd-7">0</span>
+                        <button onclick="incQua('fast-fd-7')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="menu-body">
+            <h2 class="catagory-name">Indian Foods</h2>
+            <div class="catagory-div">
+                <div class="item-div">
+                    <img src="../assets/images/food/egg_curry.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Egg Curry</div>
+                        <div class="item-price">350 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('ind-fd-1')" class="btn btn-warning">-</button>
+                        <span id="ind-fd-1">0</span>
+                        <button onclick="incQua('ind-fd-1')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button onclick="addItems('ind-fd-1')" style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/thali.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Indian Thali</div>
+                        <div class="item-price">349rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('ind-fd-2')" class="btn btn-warning">-</button>
+                        <span id="ind-fd-2">0</span>
+                        <button onclick="incQua('ind-fd-2')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary"><a href="bill.html">Add</a></button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/malai_kofta.jpeg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Malai Kofta</div>
+                        <div class="item-price">249 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('ind-fd-3')" class="btn btn-warning">-</button>
+                        <span id="ind-fd-3">0</span>
+                        <button onclick="incQua('ind-fd-3')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/matar_panner.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Panner</div>
+                        <div class="item-price">200 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('ind-fd-4')" class="btn btn-warning">-</button>
+                        <span id="ind-fd-4">0</span>
+                        <button onclick="incQua('ind-fd-4')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary"><a href="bill.php">Add</a></button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/rajma.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Rajma Chawal</div>
+                        <div class="item-price">249 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('ind-fd-5')" class="btn btn-warning">-</button>
+                        <span id="ind-fd-5">0</span>
+                        <button onclick="incQua('ind-fd-5')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary"><a href="bill.php">Add</a></button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/chiken handi.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Chiken Handi</div>
+                        <div class="item-price">249 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decQua('ind-fd-6')" class="btn btn-warning">-</button>
+                        <span id="ind-fd-6">0</span>
+                        <button onclick="incQua('ind-fd-6')" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary"><a href="bill.php">Add</a></button>
+                    </div>
+                </div>
+
+                <div class="item-div">
+                    <img src="../assets/images/food/matan.jpg" width="200" height="100" class="item-image" />
+                    <div class="item-info">
+                        <div class="item-name">Matan Handi</div>
+                        <div class="item-price">650 rs.</div>
+                    </div>
+                    <div class="quantity-div">
+                        <button onclick="decFunc()" class="btn btn-warning">-</button>
+                        <span>2</span>
+                        <button onclick="incFunc()" class="btn btn-warning">+</button>
+                    </div>
+                    <div class="order-btn">
+                        <button style="width:100%" class="btn btn-primary"><a href="bill.php">Add</a></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div style="padding:20px">
+            <button onclick="addOrder()" class="btn btn-primary place-order-btn">Place order</button>
+        </div>
+    </div>
+</body>
+<script>
+    let index = 0;
+    let items = [];
+    function incQua(fdVal) {
+        index = index + 1;
+        let trg = document.getElementById(fdVal).innerText;
+        let res = parseInt(trg) + 1;
+        document.getElementById(fdVal).innerText = res;
+    }
+    function decQua(fdVal) {
+        let trg = document.getElementById(fdVal).innerText;
+        let res = parseInt(trg) - 1;
+        document.getElementById(fdVal).innerText = res;
+    }
+    function addItems(vl) {
+        let nm = document.getElementById(`${vl}-name`).innerText;
+        let pr = document.getElementById(`${vl}-price`).innerText;
+        let qn = document.getElementById(`${vl}`).innerText;
+        let t_amt = parseInt(pr) * parseInt(qn);
+        items.push({ name: nm, price: pr, quant: qn, totalAmount: t_amt })
+        console.log(items);
+    }
+    function addOrder() {
+        window.localStorage.setItem("orders", JSON.stringify(items))
+        window.location.href = "http://localhost/bill/Admin_login/restaurent/pages/bill.html";
+    }
+</script>
+
+</html>

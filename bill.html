@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Bill</title>
+    <style>
+        .array-data {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .data-container {
+            height: 200px;
+            display: flex;
+        }
+
+        .data-label h6 {
+            color: gray;
+            text-transform: uppercase;
+        }
+
+        .data-label {
+            display: flex;
+        }
+
+        .btn {
+            border: 2px solid #003333;
+
+        }
+    </style>
+</head>
+
+<body style="background-color:bisque ;">
+
+
+
+    <!-- <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72"
+                        height="57"> -->
+                <h2>Taj restuarant</h2>
+                <h2>Bill</h2>
+
+                <!-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each
+                        required form group has a validation state that can be triggered by attempting to submit the
+                        form without completing it.</p> -->
+            </div>
+
+            <div class="row g-5 d-flex justify-content-center align-items-center">
+
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">Billing address</h4>
+                    <form class="needs-validation" novalidate="">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value=""
+                                    required="">
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value=""
+                                    required="">
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+                            <button onclick="demoFunc()">add</button>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Rate</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="demoo">
+
+                                </tbody>
+                            </table>
+
+                            <hr class="my-4">
+
+                            <h4 class="mb-3">Payment</h4>
+
+                            <div class="my-3">
+                                <div class="form-check">
+                                    <input onchange="handleChange()" id="credit" name="paymentMethod" type="radio"
+                                        class="form-check-input" checked="" required="">
+                                    <label class="form-check-label" for="credit">Credit card</label>
+                                </div>
+                                <div class="form-check">
+                                    <input onchange="handleChange()" id="debit" name="paymentMethod" type="radio"
+                                        class="form-check-input" required="">
+                                    <label class="form-check-label" for="debit">Debit card</label>
+                                </div>
+                                <div class="form-check">
+                                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input"
+                                        required="">
+                                    <label class="form-check-label" for="paypal">PayPal</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input"
+                                        required="">
+                                    <label class="form-check-label" for="cod">COD</label>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="row gy-3">
+                                <div class="col-md-6">
+                                    <label for="cc-name" class="form-label">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback">
+                                        Name on card is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="cc-number" class="form-label">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                                    <div class="invalid-feedback">
+                                        Credit card number is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="cc-expiration" class="form-label">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder=""
+                                        required="">
+                                    <div class="invalid-feedback">
+                                        Expiration date required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="cc-cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                                    <div class="invalid-feedback">
+                                        Security code required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- <button class="w-50 btn btn-light " type="submit">Continue to checkout</button>
+                                <button class="w-50 btn btn-light " type="submit">Print</button>  -->
+                            <!-- <button type="button" class="btn btn-primary">Continue to checkout</button> -->
+                            <button onclick="printBill()" type="print" class="btn btn-seconday">Print</button>
+
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© Taj restrau Mumbai </p>
+            <ul class="list-inline">
+
+
+
+
+                </li>
+                <li>
+                <li class="list-inline-item"><a href="#" class="fa fa-facebook"> </a></li>
+                <li class="list-inline-item"><a href="#" class="fa fa-instagram"> </a></li>
+                <li class="list-inline-item"><a href="#" class="fa fa-twitter"> </a></li>
+
+
+
+
+                <!-- <li class="list-inline-item"><a href="privacy.html">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li> -->
+            </ul>
+
+        </footer>
+    </div>
+</body>
+<script>
+
+    function printBill() {
+        window.print();
+    }
+
+    let emptArr = [];
+
+    testFunc()
+    function testFunc() {
+        let ck = window.localStorage.getItem('orders');
+        let selItems = JSON.parse(ck)
+        console.log(selItems);
+        for (let i = 0; i < selItems.length; i++) {
+            let row = `<tr>
+                <td>${i + 1}</td>
+                <td>${selItems[i].name}</td>
+                <td>${selItems[i].quant}</td>
+                <td>${selItems[i].price}</td>
+                <td>${selItems[i].totalAmount}</td>
+                </tr>`
+            emptArr.push(row);
+            console.log(emptArr);
+            document.getElementById("demoo").innerHTML = emptArr;
+        }
+    }
+    // window.addEventListener('load', (event) => {
+    //     let ck = window.localStorage.getItem('orders');
+    //     let selItems = JSON.parse(ck)
+    //     console.log(selItems);
+    //     var tableBody = document.getElementById("demoo");
+    //     for (let i = 0; i < selItems.length; i++) {
+    //         let row = `<tr>
+    //             <td>${i}</td>
+    //                 <td>${selItems[i].name}</td>
+    //                 <td>${selItems[i].quant}</td>
+    //                 <td>${selItems[i].price}</td>
+    //                 <td>${selItems[i].totalAmount}</td>
+    //             </tr>`
+    //         tableBody.innerHTML = row;
+    //     }
+    // });
+
+    let arr = [];
+    let dt;
+    let price;
+    let qua;
+    let ttl;
+    let itm;
+    function demoFunc() {
+        arr.push(dt);
+        console.log(arr);
+        document.getElementById('ddd').innerHTML = `${arr}`;
+    }
+    function handleChange(e) {
+        var item = document.getElementById("item").value;
+        var quantity = document.getElementById("quantity").value;
+        var rate = document.getElementById("rate").value;
+        let res = parseInt(quantity) * parseInt(rate)
+        var total = document.getElementById("total").value = res;
+        itm = item;
+        price = rate;
+        ttl = total;
+        // dt = { "item": item, "quantity": quantity, "rate": rate, "total": res }
+        dt = `<div><h6>${item}</h6> <h6>${rate}</h6> <h6>${quantity}</h6> <h6>${res}</h6></div>`
+    }
+
+    // function demoFunc() {
+    //     // Parse any JSON previously stored in allEntries
+    //     var existingEntries = JSON.parse(localStorage.getItem("orders"));
+    //     if (existingEntries == null) existingEntries = [];
+    //     var entry = {
+    //         "name": item,
+    //         "quantety": qua,
+    //         "price": price
+    //     };
+    //     localStorage.setItem("orders", JSON.stringify(entry));
+    //     // Save allEntries back to local storage
+    //     existingEntries.push(entry);
+    //     localStorage.setItem("orders", JSON.stringify(existingEntries));
+    // };
+
+
+</script>
+
+</html>
